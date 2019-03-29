@@ -11,7 +11,8 @@ module.exports = {
       ['/ES6book/01_letAndconst','let与const以及块级作用域'],
       ['/ES6book/02_jiegoufuzhi', '解构赋值'],
       ['/ES6book/03_strInES6', '字符串的拓展'],
-      ['ES6book/04_ArrInES6', '数组的拓展']
+      ['ES6book/04_ArrInES6', '数组的拓展'],
+      ['05_FunctionInES6', '函数的拓展']
     ]
   },
   base: '/Making-ES6/'
