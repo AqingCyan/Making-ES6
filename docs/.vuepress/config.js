@@ -8,9 +8,10 @@ module.exports = {
     lastUpdated: '上次更新',
     sidebar: [
       ['/','写在文档之前'],
-      ['/ES6book/01.let与const','let与const以及块级作用域'],
-      ['/ES6book/02.解构赋值', '解构赋值'],
-      ['/ES6book/03.字符串拓展', '字符串的拓展']
+      ['/ES6book/01_letAndconst','let与const以及块级作用域'],
+      ['/ES6book/02_jiegoufuzhi', '解构赋值'],
+      ['/ES6book/03_strInES6', '字符串的拓展'],
+      ['ES6book/04_ArrInES6', '数组的拓展']
     ]
   },
   base: '/Making-ES6/'
