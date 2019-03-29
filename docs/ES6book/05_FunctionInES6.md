@@ -1,0 +1,92 @@
+# ES6中函数相关
+
+## 函数的参数问题
+
+ES6中可以设置参数默认值 在参数少传的情况下 可以保证有值
+
+### 参数解构赋值
+
+参数可以使用解构赋值
+
+```js
+function fn(x="Aqing",y="Cyan") {
+  console.log(x + y);
+}
+fn(1); // "1Cyan"
+
+// console.log(name);//如果没有传参{name="Cyan",age=19}=undefined  undefined不是对象 所以这一句会报错
+function fn1({name="Cyan",age=19}) {}
+
+// 如下使用解构赋值就不会报错
+function fn2({name="Aqing",age=19}={}) {
+  console.log(name, age); // 如果没传参 {name="Aqing",age=19}={} 这一句不会报错  会使用默认值
+}
+fn2(); 
+```
+
+- 当不传入任何参数的时候 fn2和fn3执行的结果是一模一样的使用默认值
+- 但是在当传入空对象的时候fn2({})和fn3({})的结果却是不一样的
+- fn2中的name="Aqing",age=19}={} 空对象即为默认值
+
+```js
+function fn3({name,age}={name:"Aqing",age:19}) {
+  console.log(name, age);
+}
+fn3({}); // undefined undefined
+```
+
+- length属性  指的是形参的个数
+- 如果形参有默认值情况length就会失真，变成没有默认值形参的个数
+
+```js
+function fn4(x,y) {}
+console.log(fn4.length); // 2
+function fn5(x,y=1) {}
+console.log(fn5.length); // 1
+```
+
+- 关于参数默认值的位置:一般参数的默认值放在最后面
+- 如果我想让第一个参数走默认值 第二个参数走传递进的实参 这么写显然是不行的 会报错
+
+```js
+function fn6(x=10,y=20) {}
+fn6(,1); // 报错
+```
+
+arguments 是一个类数组，ES6中有类似用法
+
+```js
+function fn7(...arg) {
+  console.log(arguments);
+  console.log(arg); // 根据解构赋值 除了arguments 我们也可以这样拿 实参
+}
+fn7(1, 2, 3, 4, 5);
+```
+
+### 参数作用域
+
+函数执行的时候先给形参赋值，形参也是私有变量，如果给形参的默认值是一个变量 ，
+先看是不是自己的私有变量，不是自己的再找全局中是否有这个变量，没有就报错
+
+```js
+let m = 10,n = 100;
+function fn8(x = m,y = n) {
+  // 私有作用域：私有变量 x,y
+  // 进入函数时先给形参赋值，发现无私有变量m跟n，遂找到全局的
+  console.log(x);
+  console.log(y);
+  let m = "Cyan"; // 改用var 结果与let一样
+  let n = "ES6";
+}
+fn8(); // 10 100
+fn8(1); // 1 100 说明默认值用的是全局的
+// 若是注销函数外 m和n的声明 会报错
+
+let x = 100;
+function fn9(x, y = x) {
+  console.log(y);
+}
+// 先进来给形参赋值找到了x=1，然后y=x=1
+fn9(1); // 1
+fn9(); // undefined 形参私有作用域有x与m，y的默认值是x，找到x，x无值，因此是Undefined
+```
