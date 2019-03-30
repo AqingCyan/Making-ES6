@@ -12,7 +12,10 @@ module.exports = {
       ['/ES6book/02_jiegoufuzhi', '解构赋值'],
       ['/ES6book/03_strInES6', '字符串的拓展'],
       ['ES6book/04_ArrInES6', '数组的拓展'],
-      ['ES6book/05_FunctionInES6', '函数的拓展']
+      ['ES6book/05_FunctionInES6', '函数的拓展'],
+      ['ES6book/06_ObjectInES6', '对象的拓展'],
+      ['ES6book/07_Symbol', 'Symbol数据类型'],
+      ['ES6book/08_setAndmap', 'Set与Map数据类型'],
     ]
   },
   base: '/Making-ES6/'
