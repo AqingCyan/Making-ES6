@@ -90,3 +90,106 @@ function fn9(x, y = x) {
 fn9(1); // 1
 fn9(); // undefined 形参私有作用域有x与m，y的默认值是x，找到x，x无值，因此是Undefined
 ```
+
+## 函数的name问题
+
+我们可以通过`.name`的方式打印函数名，现在分别打印不同类型的函数名
+
+```js
+function fn() {}
+console.log(fn.name); // fn
+//匿名函数
+console.log((function () {}).name); // ""
+```
+
+### 特殊情况
+
+- 通过bind方法得到一个新的函数 name是 "bound 原来函数的名字"
+- 通过构造函数方式创建一个函数 它的名字是"anonymous"
+
+```js
+let fn1 = fn.bind(null);
+console.log(fn1.name); // "bound fn"
+
+// new Function("形参","函数体")
+// new Function("函数体")
+// function fn(形参) {函数体}
+let fn2 = new Function("x,y","console.log(x,y);return x+y;");
+console.log(fn2(10, 100)); // 先执行 打印了10 100 然后打印了110
+console.log(fn2.name); // anonymous
+```
+
+### 拓展技巧
+
+如何将下面的JSON字符串变为JSON对象 不使用JSON方法 也不使用 eval方法
+
+```js
+let str = '[{"name":"Aqing"},{"age":19}]';
+//只写一个参数就是函数体  字符串可以拼接 "return [{"name":"Aqing"},{"age":19}]"
+let arr = (new Function("return"+str))();
+console.log(arr); // [{…}, {…}]
+```
+
+## 扩展运算符
+
+扩展运算符就是`...`，它可以将非数组转化为数组，将数组转化为非数组，也可以将类数组（具有length属性）转化为数组
+
+```js
+let str = "123";
+console.log([...str]); // ["1", "2", "3"]
+
+function fn() {
+  console.log([...arguments]);
+}
+fn(1,2,3,4); // [1, 2, 3, 4]
+```
+
+它也可以用来合并数组
+
+```js
+let arr1 = [1,2,3,4];
+let arr2 = [5,6,7,8];
+console.log(arr1.concat(arr2)); // [1, 2, 3, 4, 5, 6, 7, 8]
+console.log([...arr1, ...arr2]); // [1, 2, 3, 4, 5, 6, 7, 8]
+```
+
+### 拓展技巧
+
+```js
+//求数组最大值,Math.max方法是不能直接传数组的，那我们就可以利用...方法来把它变成非数组
+//之前是想办法将它变为一个一个值，比如利用apply的方法将数组的值一个个传入
+let ary = [1,23,12,45,242,132];
+console.log(Math.max(...ary));
+
+//把ary的每一项作为函数参数一项项传入
+function fn1() {}
+fn1(...ary);
+```
+
+## 箭头函数
+
+一般函数的传统写法`function fn(x, y) {}`，而箭头函数大大的简化了写法`let fn = (x, y) => {}`
+
+- 若函数体只有一行代码的话，就可以省略`{}`，若只有一个参数，就可以省略小括号。
+- 通常函数当做参数的时候(回调函数)使用箭头函数
+- 箭头函数没有this指向，它里面的this是上一级的作用域
+- 箭头函数没有arguments
+- 箭头函数不可以用作构造函数 因为不可以使用new执行
+
+```js
+// 箭头函数this指向
+let obj = {
+  fn:function () {let f = () => {console.log(this);};
+  f();
+ }
+};
+obj.fn(); // {fn: ƒ}
+
+// 箭头函数没有arguments
+let f1 = (...arg)=>{
+  // console.log(arguments);
+  console.log(arg);
+};
+// f1(1,23);//报错：arguments is not defined
+f1(1,2,3); // [1, 2, 3]
+```
