@@ -16,6 +16,7 @@ module.exports = {
       ['ES6book/06_ObjectInES6', '对象的拓展'],
       ['ES6book/07_Symbol', 'Symbol数据类型'],
       ['ES6book/08_setAndmap', 'Set与Map数据类型'],
+      ['ES6book/09_proxyAndReflect', 'Proxy代理'],
       ['ES6book/10_class', '用class来定义类'],
       ['ES6book/11_Promise', 'Promise']
     ]
