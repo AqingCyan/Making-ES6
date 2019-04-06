@@ -160,9 +160,18 @@ function diff(ary1,ary2) {
 console.log(diff(ary1, ary2)); // [1, 3, 5, 2, 4, 6]
 ```
 
+## 拓展：WeakSet
+
+复习的时候，又读到了WeakSet这样一个数据结构，它与Set数据结构还是有很大区别：
+
+- WeakSet数据结构只允许其成员是引用类型，而Set可以是任何类型
+- WeakSet存储的是弱引用，也就是说它只会将引用类型的地址存储进数据结构，但不会去检查该地址的引用类型是否存在（可能被垃圾回收机制回收了）
+- 没有clear方法，没有set属性，不支持遍历
+
 ## Map数据结构
 
 构造函数方式创建一个Map实例，参数是一个数组。数组中的每一项也得是一个单独的数组 `new Map([[key,value],[key,value]])`
+
 - 单独数组放的是两个值,，分别是key和value
 - 在一个对象中，它的属性名必须是字符串，如果写的不是字符串默认转为字符串
 - 而Map可以让除了字符串数据类型之外的其他数据类型作为属性名
@@ -239,3 +248,51 @@ for(let [index,value] of ary.entries()){
 }
 console.log(map);
 ```
+
+## 拓展：WeakMap
+
+- WeakMap数据结构只允许其成员的key值是引用类型
+- 没有clear方法，没有set属性，不支持遍历
+
+## 与对象和数组对比
+
+为了更好的利用新的数据结构，我们需要和以前常用的数组和对象做一个横向对比：增删改查
+
+### 增
+
+```js
+let map = new Map();
+let arr = [];
+
+map.set('t', 1);
+arr.push({'t': 1});
+
+console.info('map-array', map, arr); // map-array Map(1) {"t" => 1}size: (...)__proto__: Map[[Entries]]: Array(1)0: {"t" => 1}length: 1 [{…}]
+```
+
+### 查
+
+```js
+let map_exist = map.has('t');
+let arr_exist = arr.find(item => item.t);
+console.info('map_exist-array_exist', map_exist, arr_exist) // map_exist-array_exist true {t: 1}
+```
+
+### 改
+
+```js
+map.set('t', 2);
+arr.forEach(item => item.t ? item.t = 2 : '');
+```
+
+### 删
+
+```js
+map.delete('t');
+let index = arr.findIndex(item => item.t);
+arr.splice(index, 1);
+```
+
+::: tip
+多看书，才能拓展知识面，不看书，到死都不知道还有WeakMap和WeakSet，也不知道做对比。:ok_hand:
+:::
