@@ -185,6 +185,10 @@ class G extends F{
 G.getF(); // 我是F的getF
 ```
 
+::: tip
+当然，ES6中的静态属性存在，但目前没有什么具体的如static的修饰符去修饰，我们可以直接在类上`Person.name = 'Aqing'`的方式来定义静态属性。:ok_hand:
+:::
+
 ## 原型上的方法不可枚举
 
 - ES5中类原型上的方法可以枚举
