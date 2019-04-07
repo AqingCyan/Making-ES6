@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>class关键字，类的定义新方法 | ES6学习指南</title>
+    <meta name="description" content="ES6常用特性内容演示与说明">
+    
+    
+    <link rel="preload" href="/Making-ES6/assets/css/0.styles.5bf4d0aa.css" as="style"><link rel="preload" href="/Making-ES6/assets/js/app.e1c6855f.js" as="script"><link rel="preload" href="/Making-ES6/assets/js/13.097b903d.js" as="script"><link rel="prefetch" href="/Making-ES6/assets/js/10.1f1bb742.js"><link rel="prefetch" href="/Making-ES6/assets/js/11.8f037bc8.js"><link rel="prefetch" href="/Making-ES6/assets/js/12.8af0709e.js"><link rel="prefetch" href="/Making-ES6/assets/js/14.2d649b02.js"><link rel="prefetch" href="/Making-ES6/assets/js/15.45336c23.js"><link rel="prefetch" href="/Making-ES6/assets/js/16.f3c8447b.js"><link rel="prefetch" href="/Making-ES6/assets/js/17.e9e48267.js"><link rel="prefetch" href="/Making-ES6/assets/js/18.8fc82a6e.js"><link rel="prefetch" href="/Making-ES6/assets/js/2.41b8775c.js"><link rel="prefetch" href="/Making-ES6/assets/js/3.22032af0.js"><link rel="prefetch" href="/Making-ES6/assets/js/4.17307bc8.js"><link rel="prefetch" href="/Making-ES6/assets/js/5.9b8e1ef1.js"><link rel="prefetch" href="/Making-ES6/assets/js/6.6d5d0248.js"><link rel="prefetch" href="/Making-ES6/assets/js/7.0806a788.js"><link rel="prefetch" href="/Making-ES6/assets/js/8.cc69feef.js"><link rel="prefetch" href="/Making-ES6/assets/js/9.ba514466.js">
+    <link rel="stylesheet" href="/Making-ES6/assets/css/0.styles.5bf4d0aa.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/Making-ES6/" class="home-link router-link-active"><!----> <span class="site-name">ES6学习指南</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"> <a href="https://github.com/AqingCyan/Making-ES6" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"> <a href="https://github.com/AqingCyan/Making-ES6" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/Making-ES6/" class="sidebar-link">写在文档之前</a></li><li><a href="/Making-ES6/ES6book/01_letAndconst.html" class="sidebar-link">let与const以及块级作用域</a></li><li><a href="/Making-ES6/ES6book/02_jiegoufuzhi.html" class="sidebar-link">解构赋值</a></li><li><a href="/Making-ES6/ES6book/03_strInES6.html" class="sidebar-link">字符串的拓展</a></li><li><a href="/Making-ES6/ES6book/04_ArrInES6.html" class="sidebar-link">数组的拓展</a></li><li><a href="/Making-ES6/ES6book/05_FunctionInES6.html" class="sidebar-link">函数的拓展</a></li><li><a href="/Making-ES6/ES6book/06_ObjectInES6.html" class="sidebar-link">对象的拓展</a></li><li><a href="/Making-ES6/ES6book/07_Symbol.html" class="sidebar-link">Symbol数据类型</a></li><li><a href="/Making-ES6/ES6book/08_setAndmap.html" class="sidebar-link">Set与Map数据类型</a></li><li><a href="/Making-ES6/ES6book/09_proxyAndReflect.html" class="sidebar-link">Proxy代理</a></li><li><a href="/Making-ES6/ES6book/10_class.html" class="active sidebar-link">用class来定义类</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Making-ES6/ES6book/10_class.html#回顾es5的方式" class="sidebar-link">回顾ES5的方式</a></li><li class="sidebar-sub-header"><a href="/Making-ES6/ES6book/10_class.html#es6定义类的方式" class="sidebar-link">ES6定义类的方式</a></li><li class="sidebar-sub-header"><a href="/Making-ES6/ES6book/10_class.html#class的name" class="sidebar-link">class的name</a></li><li class="sidebar-sub-header"><a href="/Making-ES6/ES6book/10_class.html#class的执行问题" class="sidebar-link">class的执行问题</a></li><li class="sidebar-sub-header"><a href="/Making-ES6/ES6book/10_class.html#class的变量提升" class="sidebar-link">class的变量提升</a></li><li class="sidebar-sub-header"><a href="/Making-ES6/ES6book/10_class.html#class的静态方法" class="sidebar-link">class的静态方法</a></li><li class="sidebar-sub-header"><a href="/Making-ES6/ES6book/10_class.html#原型上的方法不可枚举" class="sidebar-link">原型上的方法不可枚举</a></li><li class="sidebar-sub-header"><a href="/Making-ES6/ES6book/10_class.html#class的继承" class="sidebar-link">class的继承</a></li></ul></li><li><a href="/Making-ES6/ES6book/11_Promise.html" class="sidebar-link">Promise</a></li><li><a href="/Making-ES6/ES6book/12_Iterator.html" class="sidebar-link">Iterator</a></li><li><a href="/Making-ES6/ES6book/13_Generator.html" class="sidebar-link">Generator</a></li><li><a href="/Making-ES6/ES6book/14_Decorator.html" class="sidebar-link">Decorator修饰器</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="class关键字，类的定义新方法"><a href="#class关键字，类的定义新方法" aria-hidden="true" class="header-anchor">#</a> class关键字，类的定义新方法</h1> <h2 id="回顾es5的方式"><a href="#回顾es5的方式" aria-hidden="true" class="header-anchor">#</a> 回顾ES5的方式</h2> <p>ES5中定义类的方式</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">Fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 在类的原型上定义方法</span>
+Fn<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">getX</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> f <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>constructor<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Fn() {this.x = 10;}</span>
+f<span class="token punctuation">.</span><span class="token function">getX</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 10</span>
+</code></pre></div><h2 id="es6定义类的方式"><a href="#es6定义类的方式" aria-hidden="true" class="header-anchor">#</a> ES6定义类的方式</h2> <p>ES6使用class关键字定义类，并且把类本身的属性定义在其constructor中</p> <div class="language-js extra-class"><pre class="language-js"><code> <span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> x<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>上面定义了一个A类，我们对其一些新的细节进行解读</p> <ul><li>constructor是类自带的一个函数，我们把类本身的属性定义在其中（私有属性）</li> <li>它其中的this指向就是实例本身</li> <li><code>this.x = x</code>是增加私有属性x的操作，我们可以看到定义类是可以传参的，写在constructor上</li> <li>和ES5中一样，一般不return值，如果return值，基本数据类型没有影响，如果是引用数据类型会改变实例</li></ul> <p>使用和原先的方式一样：</p> <ul><li>类必须new执行，不可以作为普通函数执行</li> <li><code>A(); //报错：Class constructor A cannot be invoked without 'new'</code> 必须是要new方式来使用该类，而不是像ES5中还具有函数的角色</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 创建实例的时候传入参数 给了实例一个私有的属性的值</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// A {x: 10} 是一个对象</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token constant">A</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// function 即使它的类型仍然为函数 但不能作为函数使用</span>
+</code></pre></div><h2 id="class的name"><a href="#class的name" aria-hidden="true" class="header-anchor">#</a> class的name</h2> <p>针对不同的创建方式，类的name会有不同的限制</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> <span class="token constant">A</span> <span class="token operator">=</span> <span class="token keyword">class</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token constant">A</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// A</span>
+</code></pre></div><p>另一个命名方式却又很大的不同</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//如果创建一个类 如此命名</span>
+<span class="token keyword">let</span> <span class="token constant">B</span> <span class="token operator">=</span> <span class="token keyword">class</span> <span class="token class-name">BB</span> <span class="token punctuation">{</span>
+  <span class="token comment">//BB 只能在类里面使用 类的name都是BB</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token constant">BB</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token constant">B</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">//在这里写原型上的方法</span>
+  <span class="token function">getB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token constant">BB</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &quot;BB&quot; &quot;BB&quot;</span>
+<span class="token keyword">new</span> <span class="token class-name">BB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 报错：BB is not defined  结合前一个来看 我们可以在constructor里面啊使用BB这个名字 但是在外面不能使用BB</span>
+
+<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 这一步应该是会打印两个&quot;BB&quot;的</span>
+a<span class="token punctuation">.</span><span class="token function">getB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// BB  结合前面的测试代码，说明BB这个name只能在类的里面使用 不能再外面使用</span>
+</code></pre></div><h2 id="class的执行问题"><a href="#class的执行问题" aria-hidden="true" class="header-anchor">#</a> class的执行问题</h2> <ul><li>ES5的类可以传参</li> <li>ES6的类也可以传参</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token constant">BB</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> bb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BB</span><span class="token punctuation">(</span><span class="token string">&quot;Cyan&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 此时对象bb具有私有属性name 值为&quot;Cyan&quot;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>bb<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// { name: 'Cyan' }</span>
+
+<span class="token keyword">class</span> <span class="token class-name">AA</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> aa <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AA</span><span class="token punctuation">(</span><span class="token string">&quot;Aqing&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>aa<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// AA { name: 'Aqing' }</span>
+</code></pre></div><p>采用class表达式让类直接执行</p> <ul><li>这种写法直接加小括号，在声明定义的时候直接执行类，也就说它不能作为普通函数执行，但是可以作为构造函数执行</li> <li>也可以传参数，传给了类本身constructor</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> a1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">class</span><span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token string">&quot;Cyan&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &quot;Cyan&quot;</span>
+</code></pre></div><h2 id="class的变量提升"><a href="#class的变量提升" aria-hidden="true" class="header-anchor">#</a> class的变量提升</h2> <ul><li>在ES5中，使用function定义类，会有变量提升，所以在定义类的代码之前执行函数或者new一个实例是没有问题的</li> <li>ES6中的class与let、const一样没有变量提升</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// ES5没问题</span>
+<span class="token constant">FF</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">new</span> <span class="token class-name">FF</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token constant">FF</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>f <span class="token operator">=</span> <span class="token string">&quot;ff&quot;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// new GG; // 报错：GG is not defined 说明这里是认为GG是没有被声明的</span>
+<span class="token keyword">class</span> <span class="token class-name">GG</span><span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>gg <span class="token operator">=</span> <span class="token string">&quot;gg&quot;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="class的静态方法"><a href="#class的静态方法" aria-hidden="true" class="header-anchor">#</a> class的静态方法</h2> <p>类就相当于原型，写在原型上的方法都被实例继承了，假如想给当前类本身加一些方法，
+我们可以在方法前面加上一个关键字：static，不会被实例继承，只有类本身可以使用</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">AA</span><span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token string">&quot;aa&quot;</span><span class="token punctuation">;</span><span class="token comment">//私有的</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">getA</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment">//这是该类原型上的方法</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;哈哈&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">static</span>  <span class="token function">getB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;这是AA的静态方法&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> aa <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AA</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>aa<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// AA { a: 'aa' }</span>
+aa<span class="token punctuation">.</span><span class="token function">getA</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &quot;哈哈&quot;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>aa<span class="token punctuation">.</span>getB<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined</span>
+<span class="token comment">// aa.getB(); // 报错：aa.getB is not a function</span>
+<span class="token constant">AA</span><span class="token punctuation">.</span><span class="token function">getB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 这是AA的静态方法，说明AA的静态方法只能在该类使用</span>
+</code></pre></div><p>静态方法可以被子类继承</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">F</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token function">getF</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;我是F的getF&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// class G继承F</span>
+<span class="token keyword">class</span> <span class="token class-name">G</span> <span class="token keyword">extends</span> <span class="token class-name">F</span><span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">static</span> <span class="token function">getF</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">getF</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token constant">G</span><span class="token punctuation">.</span><span class="token function">getF</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 我是F的getF</span>
+</code></pre></div><div class="tip custom-block"><p class="custom-block-title">TIP</p> <p>当然，ES6中的静态属性存在，但目前没有什么具体的如static的修饰符去修饰，我们可以直接在类上<code>Person.name = 'Aqing'</code>的方式来定义静态属性。👌</p></div> <h2 id="原型上的方法不可枚举"><a href="#原型上的方法不可枚举" aria-hidden="true" class="header-anchor">#</a> 原型上的方法不可枚举</h2> <ul><li>ES5中类原型上的方法可以枚举</li> <li>ES6用class定义类的原型上的方法不可以枚举</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token constant">F</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>f <span class="token operator">=</span> <span class="token string">&quot;ff&quot;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token constant">F</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">getF</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> f <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">F</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> key <span class="token keyword">in</span> f<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token comment">// f和getF都遍历到了，公有和私有方法都可以枚举</span>
+
+<span class="token keyword">class</span> <span class="token class-name">AA</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>f <span class="token operator">=</span> <span class="token string">&quot;ff&quot;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">getF</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> aa <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AA</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> key <span class="token keyword">in</span> aa<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token comment">// f （只打印了f，公有方法没有被拿到，说明原型上的方法不可枚举）</span>
+</code></pre></div><h2 id="class的继承"><a href="#class的继承" aria-hidden="true" class="header-anchor">#</a> class的继承</h2> <ul><li>使用extend让子类继承父类</li> <li>子类没有this，this继承于父类，必须要写super</li> <li>super指向的是父类的原型</li> <li>super()执行完后才会有this，super就是父类的constructor</li> <li>不可以在super()执行之前就使用this，会报错，因为此时还没有this</li> <li>父类的静态方法(私有方法)也可以继承</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> x<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">getX</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token keyword">static</span> <span class="token function">getY</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">//这里的this是:[Function: A]</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 子类B继承父类A</span>
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">// 我们看到父类传递了一个x，所以子类也需要传递x</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">getX</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">// 如何让这个getX是来自于父类原型的getX？</span>
+    <span class="token comment">// 使用关键字 super</span>
+    <span class="token comment">// super指向的是父类的原型</span>
+    <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">getX</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 父类的静态方法(私有方法)也可以继承</span>
+  <span class="token keyword">static</span> <span class="token function">getY</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">// 此时的super指的是父类本身,getY是父类本身的私有方法</span>
+    <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">getY</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token string">&quot;Cyan&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+b<span class="token punctuation">.</span><span class="token function">getX</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &quot;Cyan&quot;</span>
+<span class="token constant">B</span><span class="token punctuation">.</span><span class="token function">getY</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [Function: B]</span>
+</code></pre></div></div> <div class="page-edit"><div class="edit-link"><a href="https://github.com/AqingCyan/Making-ES6/edit/master/ES6book/10_class.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">4/8/2019, 12:36:23 AM</span></div></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/Making-ES6/ES6book/09_proxyAndReflect.html" class="prev">
+          Proxy代理
+        </a></span> <span class="next"><a href="/Making-ES6/ES6book/11_Promise.html">
+          Promise
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/Making-ES6/assets/js/app.e1c6855f.js" defer></script><script src="/Making-ES6/assets/js/13.097b903d.js" defer></script>
+  </body>
+</html>
